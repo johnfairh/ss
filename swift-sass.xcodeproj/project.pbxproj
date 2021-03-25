@@ -69,7 +69,7 @@
 		02A3BC172585329C00BBF99E /* DartSass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-sass::DartSass::Product" /* DartSass.framework */; };
 		02B1C8D825EFB8290053920D /* Sass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0289BB1825666B060004544A /* Sass.framework */; };
 		02B1C8D925EFB8290053920D /* Sass.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0289BB1825666B060004544A /* Sass.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02B1C93825F0EDF40053920D /* LibSass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1C93025F0EDEE0053920D /* LibSass.swift */; };
+		02B1C93825F0EDF40053920D /* LibSass4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1C93025F0EDEE0053920D /* LibSass4.swift */; };
 		02B1C93D25F23AC30053920D /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1C93C25F23AC30053920D /* Compiler.swift */; };
 		02B1C94825F243770053920D /* LibSassConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1C94725F243770053920D /* LibSassConversion.swift */; };
 		02B1C97E25F285C20053920D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1C95D25F283E40053920D /* TestHelpers.swift */; };
@@ -225,7 +225,7 @@
 		02A3BC0E2585314200BBF99E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		02B1C8CC25EFB8180053920D /* SassLibSass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SassLibSass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B1C8F525EFBD430053920D /* TestGoodpath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGoodpath.swift; sourceTree = "<group>"; };
-		02B1C93025F0EDEE0053920D /* LibSass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibSass.swift; sourceTree = "<group>"; };
+		02B1C93025F0EDEE0053920D /* LibSass4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibSass4.swift; sourceTree = "<group>"; };
 		02B1C93C25F23AC30053920D /* Compiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compiler.swift; sourceTree = "<group>"; };
 		02B1C94725F243770053920D /* LibSassConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibSassConversion.swift; sourceTree = "<group>"; };
 		02B1C95D25F283E40053920D /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 			children = (
 				02B1C93C25F23AC30053920D /* Compiler.swift */,
 				029D3C802604EA8A00E1B6BC /* Importers.swift */,
-				02B1C93025F0EDEE0053920D /* LibSass.swift */,
+				02B1C93025F0EDEE0053920D /* LibSass4.swift */,
 				02B1C94725F243770053920D /* LibSassConversion.swift */,
 			);
 			name = SassLibSass;
@@ -839,7 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B1C93825F0EDF40053920D /* LibSass.swift in Sources */,
+				02B1C93825F0EDF40053920D /* LibSass4.swift in Sources */,
 				02B1C94825F243770053920D /* LibSassConversion.swift in Sources */,
 				02B1C93D25F23AC30053920D /* Compiler.swift in Sources */,
 				029D3C812604EA8A00E1B6BC /* Importers.swift in Sources */,
@@ -1232,7 +1232,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Sources/libsass4",
+					"$(SRCROOT)/Sources/clibsass4",
 					"$(SRCROOT)/libsass4/include",
 					"$(SRCROOT)",
 				);
@@ -1269,7 +1269,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Sources/libsass4",
+					"$(SRCROOT)/Sources/clibsass4",
 					"$(SRCROOT)/libsass4/include",
 					"$(SRCROOT)",
 				);
@@ -1459,7 +1459,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Sources/libsass4",
+					"$(SRCROOT)/Sources/clibsass4",
 					"$(SRCROOT)/libsass4/include",
 					"$(SRCROOT)",
 				);
@@ -1536,7 +1536,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Sources/libsass4",
+					"$(SRCROOT)/Sources/clibsass4",
 					"$(SRCROOT)/libsass4/include",
 					"$(SRCROOT)",
 				);
