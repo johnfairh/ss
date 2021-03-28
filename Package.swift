@@ -76,7 +76,7 @@ let package = Package(
         dependencies: ["Sass"]),
       .executableTarget(
         name: "Cli",
-        dependencies: ["DartSass"]),
+        dependencies: ["DartSass", "LibSass"]),
       .systemLibrary(
         name: "clibsass4"),
       .target(
