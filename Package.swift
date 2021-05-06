@@ -87,6 +87,6 @@ let package = Package(
         ]),
       .testTarget(
         name: "LibSassTests",
-        dependencies: ["LibSass", "TestHelpers"]),
+        dependencies: ["LibSass", "TestHelpers", "SourceMapper"]),
     ]
 )
