@@ -6,10 +6,11 @@
 //  Licensed under MIT (https://github.com/johnfairh/swift-sass/blob/main/LICENSE
 //
 
-// Shim wrapper around the dart sass compiler for large-scale testing.  This
-// doesn't add any value over using dart-sass!
+// Shim wrapper around both compilers for large-scale testing.
+// Wouldn't normally import both DartSass & LibSass...
 
 import DartSass
+import LibSass
 import Foundation
 
 let args = ProcessInfo.processInfo.arguments
@@ -27,14 +28,12 @@ func compileWithDartSass(input: URL) throws -> CompilerResults {
 }
 
 func compileWithLibSass(input: URL) throws -> CompilerResults {
-    preconditionFailure()
-//    let compiler = LibSass.Compiler(messageStyle: .terminalColored)
-//    return try compiler.compile(fileURL: input)
+    let compiler = LibSass.Compiler(messageStyle: .terminalColored)
+    return try compiler.compile(fileURL: input)
 }
 
 let compilers = ["dart": compileWithDartSass,
                  "libsass": compileWithLibSass]
-
 
 do {
     let compilerName = args[1]
