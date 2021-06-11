@@ -22,7 +22,7 @@ extension Versions {
 /// Tests for version checking
 class TestVersions: DartSassTestCase {
     func testCreation() {
-        let vers = Versions(protocolVersionString: "1.0.3", packageVersionString: "2.0.0", compilerVersionString: "3.0.0", compilerName: "test")
+        let vers = Versions(protocolVersionString: "1.0.3")
         XCTAssertEqual("1", vers.protocolVersion.major)
         XCTAssertEqual("3", vers.protocolVersion.patch)
         XCTAssertNoThrow(try vers.check())
@@ -56,7 +56,7 @@ class TestVersions: DartSassTestCase {
     }
 
     struct HangingVersionsResponder: VersionsResponder {
-        func provideVersions(eventLoop: EventLoop, callback: @escaping (Sass_EmbeddedProtocol_OutboundMessage) -> Void) {
+        func provideVersions(eventLoop: EventLoop, msg: Sass_EmbeddedProtocol_InboundMessage, callback: @escaping (Sass_EmbeddedProtocol_OutboundMessage) -> Void) {
             // drop it
         }
     }
@@ -70,11 +70,13 @@ class TestVersions: DartSassTestCase {
     }
 
     struct CorruptVersionsResponder: VersionsResponder {
-        func provideVersions(eventLoop: EventLoop, callback: @escaping (Sass_EmbeddedProtocol_OutboundMessage) -> Void) {
+        func provideVersions(eventLoop: EventLoop,
+                             msg: Sass_EmbeddedProtocol_InboundMessage,
+                             callback: @escaping (Sass_EmbeddedProtocol_OutboundMessage) -> Void) {
             eventLoop.scheduleTask(in: .milliseconds(100)) {
                 callback(.with {
                     $0.importRequest = .with {
-                        $0.compilationID = VersionRequest.requestID
+                        $0.compilationID = msg.versionRequest.id
                     }
                 })
             }
